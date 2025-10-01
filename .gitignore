@@ -44,6 +44,6 @@
 *.filters
 *.user
 *.sln
-FileContentIndex/
-v17/
-.vs/
+**/FileContentIndex/
+**/v17/
+**/.vs/
