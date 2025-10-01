@@ -13,5 +13,11 @@ int main()
         std::cin >> b;
         std::cout << "(1): " << a * b << "\n\n";
         break;
+    case 2:
+        int a, b;
+        std::cin >> a;
+        std::cin >> b;
+        std::cout << "(2): " << a + b << "\n\n";
+        break;
     }
 }
