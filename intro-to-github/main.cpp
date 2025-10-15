@@ -7,17 +7,8 @@ struct Matrix2i
     void input()
     {
         char in;
-        std::cout << "| "; 
-        in = _getch(); a1 = (int)(in-48); 
-        std::cout << in << " "; 
-        in = _getch(); b1 = (int)(in - 48);
-        std::cout << in << " |\n";
-
-        std::cout << "| "; 
-        in = _getch(); a2 = (int)(in - 48);
-        std::cout << in << " "; 
-        in = _getch(); b2 = (int)(in - 48);
-        std::cout << in << " |\n";
+        std::cout << "| "; in = _getch(); a1 = (int)(in - 48); std::cout << in << " "; in = _getch(); b1 = (int)(in - 48); std::cout << in << " |\n";
+        std::cout << "| "; in = _getch(); a2 = (int)(in - 48); std::cout << in << " "; in = _getch(); b2 = (int)(in - 48); std::cout << in << " |\n";
     }
     void output()
     {
@@ -33,6 +24,14 @@ struct Matrix2i
         a2 * op.b1 + b2 * op.b2 
         };
     }
+
+    Matrix2i operator + (const Matrix2i& op)
+    {
+        return Matrix2i{
+        a1 + op.a1, b1 + op.b1,
+        a2 + op.a2, b2 + op.b2
+        };
+    }
 };
 
 
@@ -42,6 +41,9 @@ int main()
     std::cout << "Select action: \n(1) Get product of integers\n(2) Get sum of integers\n(3) Get product of matrices\n(4) Get sum of matrices\n\n";
     std::cin >> action;
     int a, b;
+    Matrix2i mat1;
+    Matrix2i mat2;
+    Matrix2i res;
     switch (action)
     {
     case 1:
@@ -58,14 +60,21 @@ int main()
         break;
     case 3:
         std::cout << "\n";
-        Matrix2i mat1;
-        Matrix2i mat2;
-        Matrix2i res;
         mat1.input();
         std::cout << std::endl;
         mat2.input();
         res = mat1 * mat2;
         std::cout << "(3:)\n";
+        res.output();
+        std::cout << "\n";
+        break;
+    case 4:
+        std::cout << "\n";
+        mat1.input();
+        std::cout << std::endl;
+        mat2.input();
+        res = mat1 + mat2;
+        std::cout << "(4:)\n";
         res.output();
         std::cout << "\n";
         break;
